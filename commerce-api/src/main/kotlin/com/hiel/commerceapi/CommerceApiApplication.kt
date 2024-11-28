@@ -1,11 +1,11 @@
-package com.hiel.commerce
+package com.hiel.commerceapi
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class CommerceApplication
+class CommerceApiApplication
 
 fun main(args: Array<String>) {
-    runApplication<CommerceApplication>(*args)
+    runApplication<CommerceApiApplication>(*args)
 }
