@@ -1,4 +1,4 @@
-package com.hiel.commerceapi
+package com.hiel.commerce.api
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
