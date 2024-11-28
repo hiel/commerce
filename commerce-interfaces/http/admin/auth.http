@@ -1,0 +1,9 @@
+### 회원가입
+POST {{host}}/admin/auths/signup
+Content-Type: application/json; charset=utf-8
+
+{
+    "email": "yangjunghooon@gmail.com",
+    "password": "hielhiel",
+    "name": "조르바"
+}

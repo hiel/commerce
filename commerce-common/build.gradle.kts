@@ -7,10 +7,12 @@ val bootJar: BootJar by tasks
 bootJar.enabled = false
 
 plugins {
-    kotlin("kapt")
 }
 
 dependencies {
-    // web
-    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-mail")
+
+    // aws
+    implementation("org.springframework.cloud:spring-cloud-starter-aws:2.2.6.RELEASE")
+    implementation("ca.pjer:logback-awslogs-appender:1.6.0")
 }

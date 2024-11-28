@@ -1,0 +1,56 @@
+spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: vforzorva@gmail.com
+    password: zrbuuisvdpbdejpz
+    properties:
+      mail:
+        smtp:
+          auth: true
+          timeout: 5000
+          starttls:
+            enable: true
+logging:
+  level:
+    root:
+      info
+mail:
+  master-address: noreply@commerce.com
+  test-emails: yangjunghooon@gmail.com
+cloud:
+  aws:
+    stack:
+      auto: false
+    region:
+      static: ap-northeast-2
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: develop
+cloud:
+  aws:
+    credentials:
+      access-key:
+      secret-key:
+    cloudwatch:
+      group-name: /aws/ec2/instance/commerce-server-develop/log
+      stream-prefix: commerce-server-develop-
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: local
+cloud:
+  aws:
+    credentials:
+      access-key:
+      secret-key:
+    cloudwatch:
+      group-name: /aws/ec2/instance/commerce-server-develop/log
+      stream-prefix: commerce-server-develop-

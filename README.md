@@ -3,27 +3,59 @@
 - Kotlin 1.9.25
 - Azul Zulu JDK 21.0.4
 - Spring Boot 3.4.0
-- PostgreSQL
+- MySQL 8.0.40
 - Redis 7.2.6
 
 ---
 
 ## Code Architecture
-- common
-  - common utility
-  - common domain
-  - (jpa, redis, ...) domain
-- service
-  - service
-  - port (optional) : 공통, 단일 서비스 로직 (상품 단건 조회...)
-  - (jpa, redis, ...) adapter (optional) : repository 결합 레이어 (상품 및 상품 상세 테이블 등록...)
-  - (jpa, redis, ...) repository
-- interfaces
+### Flow
+1. ProductApiController, ProductJobConfiguration
+   - in adapter
+   - DI ProductUseCase
+2. ProductUseCase
+   - in port
+   - interface
+3. ProductService
+   - impl ProductUseCase
+   - DI ProductPersistencePort, ProductCachePort, ...
+4. ProductPersistencePort, ProductCachePort, ...
+   - out port
+   - interface
+5. ProductJpaAdapter, ProductRedisAdapter, ...
+   - out adapter
+   - impl ProductPersistencePort, ProductCachePort, ...
+   - DI ProductJpaRepository, ProductRedisRepository, ..
+6. ProductJpaRepository, ProductRedisRepository, ...
+   - access infrastructure
+
+
+### Directory
+- commerce-common
+  - utilities : 공통 유틸리티 (DateUtility, ...)
+  - domains
+    - product : Product, ProductType (Enum), ...
+- commerce-interfaces
   - api
-    - rest controller
-    - request, response domain
-- batch
-  - batch scheduler
+    - adminapi, platformapi
+      - apis
+        - product : ProductApiController, ProductApiDomains
+  - kafka
+    - product : ProductKafkaProducer, ProductKafkaDomains
+- commerce-service
+  - product : ProductUseCase, ProductService
+- commerce-infrastructure
+  - persistence
+    - jpa
+      - product : ProductEntity, ProductPersistencePort, ProductJpaAdapter, ProductJpaRepository
+  - cache
+    - redis
+      - product : ProductRedisEntity, ProductCachePort, ProductCacheAdapter, ProductRedisRepository
+  - aws
+    - utilities : AwsS3Utility, ...
+- commerce-batch
+  - jobs
+    - product : ProductRegisterJobConfiguration
 
 ---
 

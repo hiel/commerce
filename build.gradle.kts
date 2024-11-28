@@ -11,22 +11,22 @@ plugins {
 
     // kotlin
     kotlin("jvm") version kotlinVersion
-    kotlin("kapt") version kotlinVersion apply false
-    kotlin("plugin.allopen") version kotlinVersion apply false
-    kotlin("plugin.noarg") version kotlinVersion apply false
+    kotlin("kapt") version kotlinVersion
+    kotlin("plugin.allopen") version kotlinVersion
+    kotlin("plugin.noarg") version kotlinVersion
 
     // spring
     id("org.springframework.boot") version "3.4.0"
-    id("io.spring.dependency-management") version "1.1.6" apply false
-    kotlin("plugin.spring") version kotlinVersion apply false
+    id("io.spring.dependency-management") version "1.1.6"
+    kotlin("plugin.spring") version kotlinVersion
 }
 
 subprojects {
     // kotlin
     apply(plugin = "org.jetbrains.kotlin.jvm")
+    apply(plugin = "org.jetbrains.kotlin.kapt")
     apply(plugin = "org.jetbrains.kotlin.plugin.allopen")
     apply(plugin = "org.jetbrains.kotlin.plugin.noarg")
-    apply(plugin = "org.jetbrains.kotlin.kapt")
 
     // spring
     apply(plugin = "org.springframework.boot")

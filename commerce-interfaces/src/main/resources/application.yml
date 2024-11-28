@@ -3,3 +3,23 @@ spring:
     include:
       - common
       - service
+      - infrastructure
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: develop
+jwt:
+  secret-key: 8247be5bd3cd9dd391521cbf3596fa307af51e8b2f158e96e36ec521db62bd23
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: local
+jwt:
+  secret-key: 8247be5bd3cd9dd391521cbf3596fa307af51e8b2f158e96e36ec521db62bd23
+web-client-url: http://localhost:3000

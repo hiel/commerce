@@ -11,4 +11,5 @@ plugins {
 dependencies {
     implementation(project(":commerce-common"))
     implementation(project(":commerce-service"))
+    implementation(project(":commerce-infrastructure"))
 }

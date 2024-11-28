@@ -1,0 +1,49 @@
+spring:
+#  profiles:
+#    include:
+#      - common
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    database: mysql
+    open-in-view: false
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    properties:
+      hibernate:
+        timezone:
+          default_storage: NORMALIZE
+        session:
+          events:
+            log:
+              LOG_QUERIES_SLOWER_THAN_MS: 200
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: local
+  datasource:
+    url: jdbc:mysql://localhost:3306/commerce
+    username: root
+    password:
+  jpa:
+    database: mysql
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        use_sql_comments: true
+    hibernate:
+      ddl-auto: none
+  data:
+    redis:
+      host: localhost
+      port: 6379
+logging:
+  level:
+    org:
+      hibernate:
+        orm:
+          jdbc:
+            bind: trace
