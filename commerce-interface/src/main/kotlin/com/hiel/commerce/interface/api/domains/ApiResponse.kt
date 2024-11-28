@@ -1,4 +1,4 @@
-package com.hiel.commerce.api.domains
+package com.hiel.commerce.`interface`.api.domains
 
 import com.hiel.commerce.common.exceptions.ResultCode
 

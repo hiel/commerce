@@ -1,4 +1,4 @@
-package com.hiel.commerce.api
+package com.hiel.commerce.`interface`.api
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
