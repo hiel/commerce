@@ -10,6 +10,7 @@ plugins {
 
 dependencies {
     implementation(project(":commerce-common"))
+    implementation(project(":commerce-service"))
 
     // web
     implementation("org.springframework.boot:spring-boot-starter-web")

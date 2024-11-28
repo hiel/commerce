@@ -1,2 +1,2 @@
 rootProject.name = "commerce"
-include("commerce-common", "commerce-service", "commerce-interface", "commerce-batch")
+include("commerce-common", "commerce-service", "commerce-interfaces", "commerce-batch")

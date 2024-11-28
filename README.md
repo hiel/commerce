@@ -18,7 +18,7 @@
   - port (optional) : 공통, 단일 서비스 로직 (상품 단건 조회...)
   - (jpa, redis, ...) adapter (optional) : repository 결합 레이어 (상품 및 상품 상세 테이블 등록...)
   - (jpa, redis, ...) repository
-- interface
+- interfaces
   - api
     - rest controller
     - request, response domain
